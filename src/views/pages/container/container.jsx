@@ -8,8 +8,9 @@ import styles from "./container.module.scss";
 export default function Container() {
   const [modalLoginOpen, setModalLoginOpen] = useState(false);
   const [cards, setCards] = useState([]);
-  const [loadedCards, setLoadedCards] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(3);
 
   const handleClickModal = (event) => {
     if (event.target === event.currentTarget) {
@@ -20,9 +21,11 @@ export default function Container() {
   const fetchData = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('https://jsonplaceholder.typicode.com/comments');
+      const response = await fetch(`https://jsonplaceholder.typicode.com/comments?_start=${start}&_end=${end}`);
       const data = await response.json();
       setIsLoading(false);
+      setStart(prevState => prevState + 3)
+      setEnd(prevState => prevState + 3)
       return data;
     } catch (error) {
       console.error('Error fetching cards:', error);
@@ -38,21 +41,20 @@ export default function Container() {
         ...item,
         rating: getRandomNumber(1, 5),
       }));
-      setCards(dataWithRating.slice(0, loadedCards));
+      setCards(dataWithRating);
     };
 
     loadInitialCards();
   }, []);
 
-
   const handleLoadMore = async () => {
-    setLoadedCards(prevLoadedCards => prevLoadedCards + 3);
     const data = await fetchData();
     const dataWithRating = data.map(item => ({
       ...item,
       rating: getRandomNumber(1, 5),
     }));
-    setCards(prevCards => [...prevCards, ...dataWithRating.slice(loadedCards, loadedCards + 3)]);
+
+    setCards(prevCards => [...prevCards, ...dataWithRating]);
   };
 
   const getRandomNumber = (min, max) => {
