@@ -1,0 +1,21 @@
+.wrapper_button {
+  width: 218px;
+  height: 47px;
+  border-radius: 6px;
+  background-color: #7469F3;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  cursor: pointer;
+  color: #FFFFFF;
+  &:hover {
+    background-color: #4e47a1;
+  }
+  &:active {
+    background-color: #35306d;
+  }
+}
+
+
+

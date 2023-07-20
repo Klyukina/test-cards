@@ -1,0 +1,134 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 1024px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  font-family: "Roboto", sans-serif;
+}
+
+.modal-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-open {
+  animation: fadeIn 0.5s ease;
+}
+
+.modal_block {
+  width: 427px;
+  height: 315px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 6px;
+  margin-top: 269px;
+  padding: 20px 18px 36px 18px;
+}
+
+.modal_title {
+  color: rgba(67, 67, 67, 1);
+  font-size: 36px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: -15px;
+}
+
+.modal_close {
+  cursor: pointer;
+  text-align: right;
+}
+
+.modal_content {
+  margin: 0 auto;
+  width: 385px;
+}
+
+.modal_checkbox {
+  display: flex;
+  align-items: center;
+  label {
+    margin-left: 9px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  margin-bottom: 25px;
+}
+
+.modal_btn {
+  text-align: center;
+}
+
+.custom-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.custom-checkbox+label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+.custom-checkbox+label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  border: 2px solid rgba(116, 105, 243, 1);
+  margin-right: 9px;
+  margin-left: -8px;
+  position: relative;
+}
+
+.custom-checkbox+label::after {
+  content: '';
+  display: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 1px;
+  background-color: rgba(116, 105, 243, 1);
+  position: absolute;
+  top: 12px;
+  left: 4px;
+  transform: translate(-50%, -50%);
+}
+
+.custom-checkbox:checked+label::after {
+  display: block;
+}
+
+@media (max-width: 522px) {
+  .modal_block {
+    width: 250px;
+    height: 315px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 6px;
+    margin-top: 269px;
+    padding: 20px 18px 36px 18px;
+  }
+  .modal_title {
+    font-size: 28px;
+  }
+}
+
+
+

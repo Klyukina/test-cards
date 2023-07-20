@@ -1,0 +1,115 @@
+.item-card {
+  width: 353px;
+  height: 382px;
+  margin-bottom: 40px;
+  position: relative;
+  margin-right: 12.5px;
+  margin-left: 12.5px;
+}
+
+.item-description {
+  position: absolute;
+  width: 353px;
+  height: 50px;
+  z-index: 10;
+  bottom: 0;
+  border-radius: 2px;
+  background-color: rgba(43, 47, 60, 0.65);
+  transition: height 0.3s ease;
+  overflow: hidden;
+}
+
+.expanded {
+  height: 382px;
+}
+
+.item-text {
+  display: inline-block;
+  text-overflow: ellipsis;
+  padding: 16px 16px 24px;
+  p {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    overflow-wrap: break-word;
+  }
+}
+
+.item-header {
+  display: flex;
+  width: 321px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-rating {
+  display: flex;
+}
+
+.item-email {
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: 250px;
+  overflow: hidden; /* Скрываем текст, который выходит за пределы контейнера */
+  text-overflow: ellipsis;
+}
+
+.item-number {
+  font-size: 24px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  margin-right: 3px;
+}
+
+.item-btn {
+  position: absolute;
+  bottom: 24px;
+}
+
+@media (max-width: 522px) {
+  .item-card {
+    width: 250px;
+    height: 269px;
+    margin-bottom: 20px;
+    position: relative;
+    margin-right: 0;
+    margin-left: 0;
+
+    img {
+      width: 250px;
+    }
+  }
+  .item-description {
+    position: absolute;
+    width: 250px;
+    height: 50px;
+    z-index: 10;
+    bottom: 0;
+    border-radius: 2px;
+    background-color: rgba(43, 47, 60, 0.65);
+    transition: height 0.3s ease;
+    overflow: hidden;
+  }
+  .expanded {
+    height: 269px;
+  }
+  .item-email {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 1);
+    width: 150px;
+  }
+  .item-text {
+    p {
+      font-size: 12px;
+      width: 220px;
+    }
+  }
+  .item-header {
+    width: auto;
+  }
+}
