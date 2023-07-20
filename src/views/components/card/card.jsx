@@ -14,7 +14,7 @@ export default function Card(props) {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-  }
+  };
 
   const itemCardClasses = `${styles['item-description']} ${isHovered ? styles.expanded : ''}`;
 
